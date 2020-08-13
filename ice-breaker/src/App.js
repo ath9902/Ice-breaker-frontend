@@ -17,7 +17,6 @@ class App extends Component {
       this.setState({
         isLoaded: true,
         questions: json,
-        colors: ["red", "yellow", "blue", "green", "purple", "pink"],
       })
     });
 
@@ -29,22 +28,23 @@ class App extends Component {
       this.setState({
         isLoaded: true,
         questions: json,
-        colors: ["red", "yellow", "blue", "green", "purple", "pink"],
       })
     });
   }
 
 
   render() {
-
     
-
     var { isLoaded, questions} = this.state;
 
     console.log(questions)
 
     if (!isLoaded) {
-      return <div> Press button to load question</div>
+      return (
+        <div class="container">
+          <h1> Start API to get random questions</h1>
+          </div>
+        );
     }
 
     else {
@@ -52,25 +52,15 @@ class App extends Component {
         <div className="App">
           
           <div class="container">
-            <h2> Random Question </h2>
             <h1>{questions.message}</h1>
             <button class="button button4" onClick={() => this.nextQuestion()}> Next Question</button>
           </div>
-            
-          
-         
-          
-  
         </div>
 
         
       );
-    }
-
-    
+    } 
   }
-
-  
 }
 
 const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
@@ -113,7 +103,5 @@ balls.forEach((el, i, ra) => {
     }
   );
 });
-
-
 
 export default App;
